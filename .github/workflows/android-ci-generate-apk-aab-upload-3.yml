@@ -100,7 +100,7 @@ jobs:
         working-directory: ${{ github.workspace }}
 
       - name: Build APK(s) Release from bundle using bundletool (Path same with bundle output)
-        run: java -jar ".github/lib/bundletool.jar" build-apks --bundle=${{ env.main_project_module }}/build/outputs/bundle/release/${{ env.generated_name_aab }}.aab --output=${{ env.main_project_module }}/build/outputs/bundle/release/${{ env.generated_name_aab }}.apks --mode=universal --ks="app/${{ env.ks_path }}" --ks-pass=pass:${{ env.ks_store_pass }} --ks-key-alias=${{ env.ks_alias }} --key-pass=pass:${{ env.ks_alias_pass }}
+        run: java -jar ".github/lib/bundletool.jar" build-apks --bundle=${{ env.main_project_module }}/build/outputs/bundle/release/${{ env.generated_name_aab }}.aab --output=${{ env.main_project_module }}/build/outputs/bundle/release/${{ env.generated_name_aab }}.apks --mode=universal --ks="app/${{ env.ks_path }}" --ks-pass=pass:${{ env.KS_STORE_PASS }} --ks-key-alias=${{ env.KS_ALIAS }} --key-pass=pass:${{ env.KS_ALIAS_PASS }}
 
       # Duplicate APK(s) Release to zip file and extract
       - name: Duplicate APK(s) Release to zip file and extract
