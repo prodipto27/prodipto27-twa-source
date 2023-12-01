@@ -106,7 +106,7 @@ jobs:
       - name: Sign the AAB using jarsigner
         run: |
           cd ${{ env.main_project_module }}/build/outputs/bundle/release/
-          jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore app/${{ env.ks_path }} -storepass ${{ env.KS_STORE_PASS }} -keypass ${{ env.KS_ALIAS_PASS }} ${{ env.generated_name_aab }}.aab ${{ env.KS_ALIAS }}
+          jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ${{ github.workspace }}/app/${{ env.ks_path }} -storepass ${{ env.KS_STORE_PASS }} -keypass ${{ env.KS_ALIAS_PASS }} ${{ env.generated_name_aab }}.aab ${{ env.KS_ALIAS }}
 
       # Duplicate APK(s) Release to zip file and extract
       - name: Duplicate APK(s) Release to zip file and extract
