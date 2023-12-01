@@ -40,10 +40,10 @@ jobs:
       - name: Set up Secrets
         id: set_up_secrets
         run: |
-          echo "env:
-            ks_store_pass: ${{ secrets.KS_STORE_PASS }}
-            ks_alias: ${{ secrets.KS_ALIAS }}
-            ks_alias_pass: ${{ secrets.KS_ALIAS_PASS }}" >> $GITHUB_ENV
+          echo "KS_STORE_PASS=${{ secrets.KS_STORE_PASS }}" >> $GITHUB_ENV
+          echo "KS_ALIAS=${{ secrets.KS_ALIAS }}" >> $GITHUB_ENV
+          echo "KS_ALIAS_PASS=${{ secrets.KS_ALIAS_PASS }}" >> $GITHUB_ENV
+        shell: bash
 
       - name: Set Up JDK
         uses: actions/setup-java@v3
